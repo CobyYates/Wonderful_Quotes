@@ -16,21 +16,37 @@
     </v-app-bar>
 
     <v-content>
-      <HelloWorld/>
+      <v-btn @click="selectedComponent = 'app-quote'">Quote</v-btn>
+      <v-btn @click="selectedComponent = 'app-author'">Author</v-btn>
+      <v-btn @click="selectedComponent = 'app-new'">New</v-btn>
+      <hr>
+      <p>{{ selectedComponent }}</p>
+      <component :is="selectedComponent">
+        <p>Default Content</p>
+      </component>
+      <!-- <app-quote>
+        <h2 slot="title">{{ quoteTitle }}</h2>
+        <p slot="content">A wonderful Quote</p>
+      </app-quote> -->
     </v-content>
   </v-app>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld';
+import Quote from './components/Quote';
+import Author from './components/Author';
+import New from './components/New';
 
 export default {
-  name: 'App',
-  components: {
-    HelloWorld,
-  },
+  
   data: () => ({
-    //
+    quoteTitle: 'The Quote',
+    selectedComponent: 'app-quote'
   }),
+  components: {
+    'app-quote': Quote,
+    appAuthor: Author,
+    appNew: New
+  }
 };
 </script>
