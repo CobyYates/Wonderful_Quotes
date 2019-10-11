@@ -15,38 +15,61 @@
       </v-btn>
     </v-app-bar>
 
-    <v-content>
-      <v-btn @click="selectedComponent = 'app-quote'">Quote</v-btn>
-      <v-btn @click="selectedComponent = 'app-author'">Author</v-btn>
-      <v-btn @click="selectedComponent = 'app-new'">New</v-btn>
-      <hr>
-      <p>{{ selectedComponent }}</p>
-      <component :is="selectedComponent">
-        <p>Default Content</p>
-      </component>
-      <!-- <app-quote>
-        <h2 slot="title">{{ quoteTitle }}</h2>
-        <p slot="content">A wonderful Quote</p>
-      </app-quote> -->
-    </v-content>
+    <v-container>
+      <v-row>
+        <v-col cols="8">
+          <app-progress :quoteCount='quotes.length' :maxQuotes='maxQuotes'></app-progress>
+        </v-col>
+      </v-row>
+      <v-row>
+        <v-col cols="6">
+          <app-new-quote @quoteAdded="newQuote"></app-new-quote>
+          <app-quote-grid :quotes="quotes" @quoteDeleted="deleteQuote"></app-quote-grid>
+        </v-col>
+      </v-row>
+      <v-row>
+        <v-col cols="6">
+          <app-sheet></app-sheet>
+        </v-col>
+      </v-row>
+    </v-container>
   </v-app>
 </template>
 
 <script>
-import Quote from './components/Quote';
-import Author from './components/Author';
-import New from './components/New';
+import QuoteGrid from './components/QuoteGrid';
+import NewQuote from './components/NewQuote';
+import Sheet from './components/Sheet'
+import Progress from './components/Progress'
 
 export default {
   
   data: () => ({
-    quoteTitle: 'The Quote',
-    selectedComponent: 'app-quote'
+    maxQuotes: 10,
+    quotes: [
+      'Just a quote'
+    ],
+    maxQuotes: 10
   }),
+  methods: {
+    newQuote(quote) {
+      if(this.quotes.length >= this.maxQuotes) {
+        return alert('Please delete quotes first!')
+      }
+      this.quotes.push(quote)
+    },
+    deleteQuote(index) {
+      this.quotes.splice(index, 1)
+    }
+  },
   components: {
-    'app-quote': Quote,
-    appAuthor: Author,
-    appNew: New
+    appQuoteGrid: QuoteGrid,
+    appNewQuote: NewQuote,
+    appSheet: Sheet,
+    appProgress: Progress,
   }
 };
 </script>
+
+<style scoped>
+</style>

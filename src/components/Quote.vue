@@ -1,34 +1,18 @@
 <template>
     <div>
-        <div class="title">
-            <slot name="title"></slot>
-            <span><slot name="subtitle">The Subtitle</slot></span>
-        </div>
-        <hr>
-        <div>
-            <slot></slot>
-        </div>
+        <v-card x-large class="display-1 font-weight-light pa-4">
+            <v-card-title>
+                <slot></slot>
+            </v-card-title>
+        </v-card>
     </div>
 </template>
 
 <script>
-    export default {
-    }
 </script>
 
 <style scoped>
-    div {
-        border: 1px solid #ccc;
-        box-shadow: 1px 1px 2px black;
-        padding: 30px;
-        margin: 30px auto;
-        text-align: center;
-    }
-
-    h2 {
-        color: #666;
-    }
-    .title {
-        font-style: italic;
+    .quote {
+        cursor: pointer;
     }
 </style>
