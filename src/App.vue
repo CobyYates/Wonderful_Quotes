@@ -1,20 +1,5 @@
 <template>
   <v-app>
-    <!-- <v-app-bar app>
-      <v-toolbar-title class="headline text-uppercase">
-        <span>Vuetify</span>
-        <span class="font-weight-light">MATERIAL DESIGN</span>
-      </v-toolbar-title>
-      <v-spacer></v-spacer>
-      <v-btn
-        text
-        href="https://github.com/vuetifyjs/vuetify/releases/latest"
-        target="_blank"
-      >
-        <span class="mr-2">Latest Release</span>
-      </v-btn>
-    </v-app-bar> -->
-
     <v-container class="text-center" >
       <v-row align="center" justify="center">
         <v-col cols="8" sm="12">
@@ -26,14 +11,14 @@
           <app-new-quote @quoteAdded="newQuote"></app-new-quote>
         </v-col>
       </v-row>
-      <v-row>
-        <v-col class="d-flex flex-wrap">
-          <app-quote-grid :quotes="quotes" @quoteDeleted="deleteQuote"></app-quote-grid>
-        </v-col>
-      </v-row>
       <v-row align="center">
         <v-col cols="12">
           <app-sheet></app-sheet>
+        </v-col>
+      </v-row>
+      <v-row>
+        <v-col class="d-flex flex-wrap">
+          <app-quote-grid :quotes="quotes" @quoteDeleted="deleteQuote"></app-quote-grid>
         </v-col>
       </v-row>
     </v-container>

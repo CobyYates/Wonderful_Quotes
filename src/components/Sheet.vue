@@ -10,7 +10,6 @@
 <script>
 export default {
     data: () => ({
-    //   width: "100vw",
       height: "100",
       elevation: "4",
       color: 'error',
