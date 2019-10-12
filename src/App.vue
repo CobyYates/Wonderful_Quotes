@@ -1,6 +1,6 @@
 <template>
   <v-app>
-    <v-app-bar app>
+    <!-- <v-app-bar app>
       <v-toolbar-title class="headline text-uppercase">
         <span>Vuetify</span>
         <span class="font-weight-light">MATERIAL DESIGN</span>
@@ -13,22 +13,26 @@
       >
         <span class="mr-2">Latest Release</span>
       </v-btn>
-    </v-app-bar>
+    </v-app-bar> -->
 
-    <v-container>
-      <v-row>
-        <v-col cols="8">
+    <v-container class="text-center" >
+      <v-row align="center" justify="center">
+        <v-col cols="8" sm="12">
           <app-progress :quoteCount='quotes.length' :maxQuotes='maxQuotes'></app-progress>
         </v-col>
       </v-row>
-      <v-row>
-        <v-col cols="6">
+      <v-row align="center" justify="center">
+        <v-col cols="12">
           <app-new-quote @quoteAdded="newQuote"></app-new-quote>
-          <app-quote-grid :quotes="quotes" @quoteDeleted="deleteQuote"></app-quote-grid>
         </v-col>
       </v-row>
       <v-row>
-        <v-col cols="6">
+        <v-col class="d-flex flex-wrap">
+          <app-quote-grid :quotes="quotes" @quoteDeleted="deleteQuote"></app-quote-grid>
+        </v-col>
+      </v-row>
+      <v-row align="center">
+        <v-col cols="12">
           <app-sheet></app-sheet>
         </v-col>
       </v-row>

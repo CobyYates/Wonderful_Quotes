@@ -1,11 +1,11 @@
 <template>
-    <div>
-        <v-card x-large class="display-1 font-weight-light pa-4">
+    <v-container>
+        <v-card x-large class="quote display-1 font-weight-light pa-4">
             <v-card-title>
-                <slot></slot>
+                &quot;<slot></slot>&quot;
             </v-card-title>
         </v-card>
-    </div>
+    </v-container>
 </template>
 
 <script>

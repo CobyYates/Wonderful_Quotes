@@ -1,16 +1,8 @@
 <template>
     <v-container>
-        <v-row>
-            <v-form>
-                <v-col>
-                    <label>Quote</label>
-                    <v-text-field label="Filled" filled v-model="quote"></v-text-field>
-                </v-col>
-                <v-col>
-                    <v-btn color="primary" @click.prevent="createNew">Add Quote</v-btn>
-                </v-col>
-            </v-form>
-        </v-row>
+        <label>Quote</label>
+        <v-textarea background-color="teal lighten-5" label="Filled" filled auto-grow="true" v-model="quote"></v-textarea>
+        <v-btn color="primary" @click.prevent="createNew">Add Quote</v-btn>
     </v-container>
 </template>
 
@@ -30,5 +22,5 @@
 </script>
 
 <style scoped>
-   
+
 </style>

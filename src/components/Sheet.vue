@@ -1,13 +1,16 @@
 <template>
-    <v-sheet class="text-center" :width="width" :height="height" :elevation="elevation" :color="color">
-        <v-sheet-title>Info: Click on a quote to delete it!</v-sheet-title>
+<v-container>
+    <v-sheet class="d-flex align-center justify-center" :width="width" :height="height" :elevation="elevation" :color="color">
+        <v-sheet-title class="white--text"><h2>TIP: Click on a quote to delete it!</h2></v-sheet-title>
     </v-sheet>
+</v-container>
+    
 </template>
 
 <script>
 export default {
     data: () => ({
-      width: "100vw",
+    //   width: "100vw",
       height: "100",
       elevation: "4",
       color: 'error',

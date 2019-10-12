@@ -1,11 +1,11 @@
 <template>
-    <v-container>
+    <!-- <v-container> -->
         <v-row>
-            <v-col cols="4">
+            <v-col class="d-flex flex-wrap">
                 <app-quote v-for="(quote, index) in quotes" @click.native="deleteQuote(index)">{{ quote }}</app-quote>
             </v-col>
         </v-row>
-    </v-container>
+    <!-- </v-container> -->
 </template>
 
 <script>
